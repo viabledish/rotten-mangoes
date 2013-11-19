@@ -5,7 +5,6 @@ class MoviesController < ApplicationController
   end
 
   def show
-  	# raise "blah blah blah" 
     @movie = Movie.find(params[:id])
   end
 
@@ -43,12 +42,12 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
-  protected
+protected
 
-  def movie_params
-    params.require(:movie).permit(
-      :title, :release_date, :director, :runtime_in_minutes, :poster_image_url, :description
-    )
-  end
+	def movie_params
+	    params.require(:movie).permit(
+	      :title, :release_date, :director, :runtime_in_minutes, :poster_image_url, :description
+	    )
+	end
 
 end
