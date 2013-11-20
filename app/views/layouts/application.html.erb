@@ -2,15 +2,28 @@
 <html>
 <head>
   <title>RottenMangoes</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "Rails Bootstrap" %></title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Bootstrap" %>">
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 	<% flash.each do |key, value| %>
     <%= content_tag(:div, value) %>
   <% end %>
-<%= yield %>
-<%= render 'layouts/footer' %>
+<main role="main">
+      <div class="container">
+        <div class="content">
+           <div class="row">
+          </div>
+          <footer>
+          <%= yield %>
+          <%= render 'layouts/footer' %>
+          </footer>
+        </div>
+      </div>
+    </main>
 </body>
 </html>
