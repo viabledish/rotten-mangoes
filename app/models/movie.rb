@@ -27,6 +27,8 @@ class Movie < ActiveRecord::Base
     reviews.sum(:rating_out_of_ten)/reviews.size
   end
 
+  paginates_per 50
+
   protected
 
   def release_date_is_in_the_future
